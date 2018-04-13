@@ -7,7 +7,6 @@
       <provider
             android:name=".utils.ImagePickerProvider"
             android:authorities="${applicationId}.image.provider"
-                
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
