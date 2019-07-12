@@ -47,6 +47,7 @@ repositories {
 dependencies {
     // From node_modules
     api project(':ReactAndroid')
+    api project(':Microsoft.Intune.MAM.SDK')
 
     testImplementation "junit:junit:4.10"
     testImplementation "org.assertj:assertj-core:1.7.0"
