@@ -1,20 +1,20 @@
-import groovy.json.JsonSlurper
-
-def computeVersionName() {
-    // dynamically retrieve version from package.json
-    def slurper = new JsonSlurper()
-    def json = slurper.parse(file('../package.json'), "utf-8")
-    return json.version
-}
-
 buildscript {
     repositories {
+        google()
         jcenter()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.+'
+        classpath 'com.android.tools.build:gradle:3.4.1'
     }
+}
+
+def getExtOrDefault(name) {
+  return rootProject.ext.has(name) ? rootProject.ext.get(name) : project.properties['ReactNativeImagePicker_' + name]
+}
+
+def getExtOrIntegerDefault(name) {
+  return rootProject.ext.has(name) ? rootProject.ext.get(name) : (project.properties['ReactNativeImagePicker_' + name]).toInteger()
 }
 
 apply plugin: 'com.android.library'
@@ -35,13 +35,15 @@ android {
 }
 
 repositories {
-    mavenCentral()
+    mavenLocal()
     maven {
-        url "$projectDir/../Example/node_modules/react-native/android"
+        url "$projectDir/../node_modules/react-native/android"
     }
     maven {
-        url "$projectDir/../../react-native/android"
+        url "$projectDir/../node_modules/jsc-android/dist"
     }
+    google()
+    jcenter()
 }
 
 dependencies {
