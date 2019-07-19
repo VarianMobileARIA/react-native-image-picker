@@ -222,7 +222,7 @@ public class ImagePickerModule extends ReactContextBaseJavaModule
 
     this.options = options;
 
-    if (!permissionsCheck(currentActivity, callback, REQUEST_PERMISSIONS_FOR_CAMERA))
+    if (false && !permissionsCheck(currentActivity, callback, REQUEST_PERMISSIONS_FOR_CAMERA))
     {
       return;
     }
