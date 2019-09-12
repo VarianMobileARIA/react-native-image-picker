@@ -45,8 +45,7 @@ repositories {
 }
 
 dependencies {
-    api project(':ReactAndroid')
-    implementation project(':Microsoft.Intune.MAM.SDK')
+    api "com.facebook.react:react-native:+"
     
     testImplementation "junit:junit:4.10"
     testImplementation "org.assertj:assertj-core:1.7.0"
